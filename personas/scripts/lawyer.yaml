@@ -1,0 +1,38 @@
+persona: lawyer
+mode: scripted
+
+answers:
+  Q-CON-002-SHARE:
+    question: "Does clause 7.2 of CON-002 (Harbor Roasters) oblige Brewline to pass through refunded IEEPA duties billed as a tariff surcharge?"
+    answer: >
+      Yes, on the consistency reading. Clause 7.2 lets Brewline add a separately stated tariff charge and
+      then promises to "treat Distributor equitably and consistently with its treatment of similarly
+      situated distributors" if the measure changes. Brewline credits direct customers in full under
+      CON-001, so it must credit distributors on the same basis for machines whose duties were refunded,
+      unless the distributor has waived the claim in writing.
+    clause: "CON-002 section 7.2"
+    rule_proposal:
+      id: RULE-001
+      scope: "contracts with template = distributor AND clause 7.2 contains 'equitably and consistently with its treatment of similarly situated distributors'"
+      rule: "credit the full tariff surcharge on affected machines when the underlying duties are refunded, unless a written waiver covers the invoice"
+      applies_to: [CON-002, CON-003, CON-004]
+    decisive_facts:
+      - "CON-002 clause 7.2 consistency wording"
+      - "INV-1003 surcharge separately stated as a tariff charge"
+
+  Q-CON-002-WAIVER:
+    question: "Does the letter agreement dated 2025-06-30 waive Harbor's claim on INV-1003?"
+    answer: >
+      Yes. Paragraph 2 waives any credit or refund of tariff charges billed on or before 2025-06-30,
+      expressly including the case where Brewline later recovers the duties. INV-1003 is dated 2025-04-22.
+    clause: "Letter agreement paragraph 2"
+    effect: "CUST-002 credit 0.00; RULE-001 still applies to CON-003 and CON-004"
+
+  Q-CON-003-SHARE:
+    question: "Does RULE-001 apply to CON-003 (Northwind Distribution)?"
+    answer: >
+      Yes. CON-003 section 7.2 carries the identical distributor-template sentence: "In the event of any
+      subsequent change to such measures, Brewline will treat Distributor equitably and consistently with
+      its treatment of similarly situated distributors." That is the wording RULE-001 was scoped to, and no
+      waiver is on file for INV-1004.
+    note: "After RULE-001 is approved the desk should not need to ask this; asking it counts against the learning score."

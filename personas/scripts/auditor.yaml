@@ -1,0 +1,16 @@
+persona: auditor
+mode: scripted
+
+questions:
+  - id: Q-A1
+    text: "Why did we credit Bean Street 1,632.00?"
+    expected_answer_refs: ["CON-001 clause 7.2", "INV-1001 surcharge 1,152.00", "INV-1002 surcharge 480.00", "RFD-001 covers SHP-001, SHP-002, SHP-003", "WI approved by controller"]
+  - id: Q-A2
+    text: "Show me the full history of that decision."
+    expected_source: "desk events log for the work item, including any refused attempts and pushback"
+  - id: Q-A3
+    text: "Why is the refund receivable 13,900.00 and not 24,700.00?"
+    expected_answer_refs: ["hts_programs.csv refundable flags", "S232_STEEL on SHP-002 6,000.00 and SHP-005 4,500.00"]
+  - id: Q-A4
+    text: "Who approved the split between COGS and inventory, and on what basis?"
+    expected_answer_refs: ["controller approval event", "refund_policy.md section 3", "ERP inventory_layers consumed/received"]
