@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* Tariff Desk design tokens.
+   Family: modern-minimal with Ramp-like cues: warm paper surfaces, near-black ink,
+   one lime accent reserved for live agent activity, status colours reserved for state. */
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: #f6f5f0;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0eee7;
+  --color-surface-3: #e9e6dd;
+  --color-ink: #101214;
+  --color-ink-2: #363b43;
+  --color-ink-3: #6a717c;
+  --color-line: #dedacf;
+  --color-line-2: #c3bdae;
+
+  --color-accent: #cdf25b;
+  --color-accent-2: #b4e03a;
+  --color-accent-ink: #223a07;
+
+  --color-good: #157f3b;
+  --color-good-soft: #e2f3e7;
+  --color-warn: #b06a08;
+  --color-warn-soft: #fbeed6;
+  --color-bad: #c43b3b;
+  --color-bad-soft: #fbe4e4;
+  --color-info: #2a5bd7;
+  --color-info-soft: #e5ebfb;
+
+  --color-seat1: #2a78d6;
+  --color-seat2: #1baf7a;
+  --color-seat3: #6250d6;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --shadow-card: 0 1px 3px rgba(20, 22, 25, 0.06), 0 0 0 1px var(--color-line);
+  --shadow-pop: 0 12px 32px rgba(20, 22, 25, 0.12), 0 0 0 1px var(--color-line);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.hero-num {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-variant-numeric: proportional-nums;
+}
+
+/* the one piece of continuous motion: a seat that is working right now */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(180, 224, 58, 0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(180, 224, 58, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(180, 224, 58, 0); }
+}
+.pulse { animation: pulse-ring 1.6s ease-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface-2) 25%, var(--color-surface-3) 50%, var(--color-surface-2) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: var(--radius-sm);
+}
+
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+
+/* thin, quiet scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--color-line-2) transparent; }
+
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--color-info);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse, .skeleton { animation: none; }
+}
+
+/* hover tips: one sentence, above the word, never wider than the viewport */
+.tip .tip-box {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 280px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 8px 24px rgba(20, 22, 25, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+  z-index: 40;
+}
+.tip:hover .tip-box, .tip:focus-visible .tip-box { opacity: 1; }
+.tip .tip-box::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: var(--color-ink);
+}
