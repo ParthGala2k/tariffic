@@ -1,0 +1,42 @@
+[
+  {
+    "truth_id": "CUST-001",
+    "name": "Bean Street Coffee Co.",
+    "email": "billing@beanstreet.example",
+    "metadata": {
+      "truth_id": "CUST-001",
+      "contract_id": "CON-001",
+      "passthrough_clause": "explicit"
+    }
+  },
+  {
+    "truth_id": "CUST-002",
+    "name": "Harbor Roasters",
+    "email": "ap@harborroasters.example",
+    "metadata": {
+      "truth_id": "CUST-002",
+      "contract_id": "CON-002",
+      "passthrough_clause": "ambiguous"
+    }
+  },
+  {
+    "truth_id": "CUST-003",
+    "name": "Northwind Distribution",
+    "email": "ap@northwind.example",
+    "metadata": {
+      "truth_id": "CUST-003",
+      "contract_id": "CON-003",
+      "passthrough_clause": "ambiguous"
+    }
+  },
+  {
+    "truth_id": "CUST-004",
+    "name": "Cascade Coffee Supply",
+    "email": "ap@cascadecoffee.example",
+    "metadata": {
+      "truth_id": "CUST-004",
+      "contract_id": "CON-004",
+      "passthrough_clause": "ambiguous"
+    }
+  }
+]

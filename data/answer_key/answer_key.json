@@ -1,0 +1,287 @@
+{
+  "scenario_id": "tiny-world-v1",
+  "planted_mistakes": [
+    {
+      "id": "PM-1",
+      "name": "Section 232 steel counted in the refund forecast",
+      "where": "systems/books/history/2025.beancount, 2025-09-30 entry to Assets:Receivable:TariffRefund",
+      "booked": 24400.0,
+      "correct": 13900.0,
+      "excess": 10500.0,
+      "excess_components": {
+        "S232_STEEL on SHP-002": 6000.0,
+        "S232_STEEL on SHP-005": 4500.0
+      },
+      "rule_violated": "forecast counts only programs with refundable=yes in data/reference/hts_programs.csv"
+    }
+  ],
+  "refund_match": {
+    "refund_id": "RFD-001",
+    "deposit_total": 14317.0,
+    "principal": 13900.0,
+    "interest": 417.0,
+    "by_entry": {
+      "BRK-2500101-1": {
+        "shipment": "SHP-001",
+        "principal": 4000.0,
+        "interest": 120.0
+      },
+      "BRK-2500128-2": {
+        "shipment": "SHP-002",
+        "principal": 2400.0,
+        "interest": 72.0
+      },
+      "BRK-2500211-3": {
+        "shipment": "SHP-003",
+        "principal": 1200.0,
+        "interest": 36.0
+      },
+      "BRK-2500225-4": {
+        "shipment": "SHP-004",
+        "principal": 3000.0,
+        "interest": 90.0
+      },
+      "BRK-2500311-5": {
+        "shipment": "SHP-005",
+        "principal": 1800.0,
+        "interest": 54.0
+      },
+      "BRK-2500325-6": {
+        "shipment": "SHP-006",
+        "principal": 1500.0,
+        "interest": 45.0
+      }
+    }
+  },
+  "refund_split": {
+    "method": "principal per shipment x (qty consumed / qty received), FIFO per ERP inventory_layers",
+    "to_cogs": 768.0,
+    "to_inventory": 13132.0,
+    "by_shipment": {
+      "SHP-001": {
+        "principal": 4000.0,
+        "consumed": 12,
+        "received": 100,
+        "cogs": 480.0,
+        "inventory": 3520.0
+      },
+      "SHP-002": {
+        "principal": 2400.0,
+        "consumed": 3,
+        "received": 40,
+        "cogs": 180.0,
+        "inventory": 2220.0
+      },
+      "SHP-003": {
+        "principal": 1200.0,
+        "consumed": 9,
+        "received": 100,
+        "cogs": 108.0,
+        "inventory": 1092.0
+      },
+      "SHP-004": {
+        "principal": 3000.0,
+        "consumed": 0,
+        "received": 75,
+        "cogs": 0.0,
+        "inventory": 3000.0
+      },
+      "SHP-005": {
+        "principal": 1800.0,
+        "consumed": 0,
+        "received": 30,
+        "cogs": 0.0,
+        "inventory": 1800.0
+      },
+      "SHP-006": {
+        "principal": 1500.0,
+        "consumed": 0,
+        "received": 125,
+        "cogs": 0.0,
+        "inventory": 1500.0
+      }
+    }
+  },
+  "expected_entries": [
+    {
+      "id": "JE-1",
+      "purpose": "Remove Section 232 from forecast (PM-1)",
+      "postings": {
+        "Expenses:COGS:Tariff": 10500.0,
+        "Assets:Receivable:TariffRefund": -10500.0
+      }
+    },
+    {
+      "id": "JE-2",
+      "purpose": "Record refund deposit RFD-001",
+      "postings": {
+        "Assets:Bank:Increase:Operating": 14317.0,
+        "Assets:Receivable:TariffRefund": -13900.0,
+        "Income:Interest:TariffRefund": -417.0
+      },
+      "was": "JE-3"
+    },
+    {
+      "id": "JE-3",
+      "purpose": "Split refund between parts sold and parts on hand",
+      "postings": {
+        "Expenses:COGS:Tariff": 13132.0,
+        "Assets:Inventory:Parts": -13132.0
+      },
+      "was": "JE-4"
+    },
+    {
+      "id": "JE-4",
+      "purpose": "Bean Street share of refund (CON-001 clause 7.2)",
+      "postings": {
+        "Income:Sales:TariffSurcharge": 1632.0,
+        "Liabilities:CustomerCredits": -1632.0
+      },
+      "credit_notes": [
+        {
+          "invoice": "INV-1001",
+          "amount": 1152.0
+        },
+        {
+          "invoice": "INV-1002",
+          "amount": 480.0
+        }
+      ],
+      "was": "JE-5"
+    },
+    {
+      "id": "JE-5",
+      "purpose": "Northwind share of refund after RULE-001 (CON-003 clause 7.2)",
+      "postings": {
+        "Income:Sales:TariffSurcharge": 240.0,
+        "Liabilities:CustomerCredits": -240.0
+      },
+      "credit_notes": [
+        {
+          "invoice": "INV-1004",
+          "amount": 240.0
+        }
+      ],
+      "was": "JE-6"
+    }
+  ],
+  "customer_shares": {
+    "CUST-001": {
+      "credit": 1632.0,
+      "basis": "CON-001 clause 7.2 explicit: full surcharge on affected machines. INV-1001 1152.00 + INV-1002 480.00; all parts from refunded entries SHP-001..003",
+      "action": "credit notes on INV-1001 and INV-1002 via gateway"
+    },
+    "CUST-002": {
+      "credit": 0.0,
+      "basis": "CON-002 clause 7.2 ambiguous -> question to lawyer. Signed waiver dated 2025-06-30 (inbox) resolves: no credit due on INV-1003",
+      "action": "question, then close on waiver as evidence"
+    },
+    "CUST-003": {
+      "credit": null,
+      "credit_after_rule": 240.0,
+      "basis": "CON-003 uses Harbor wording; held until RULE-001 (from the lawyer's CON-002 ruling) is approved, then INV-1004 surcharge 240.00 on refunded shipments SHP-001, SHP-003 with no waiver on file",
+      "action": "hold, then credit note after RULE-001"
+    },
+    "CUST-004": {
+      "credit": 0.0,
+      "basis": "CON-004 uses Harbor wording; no 2025 invoices",
+      "action": "none"
+    }
+  },
+  "learning_loop": {
+    "trigger": "lawyer answers Q-CON-002-SHARE (personas/scripts/lawyer.yaml)",
+    "sequence": [
+      {
+        "step": 1,
+        "actor": "desk (revenue accountant)",
+        "action": "asks the lawyer Q-CON-002-SHARE on the ambiguous CON-002 clause 7.2",
+        "work_item": "WI-CUST-002-QUESTION"
+      },
+      {
+        "step": 2,
+        "actor": "human_lawyer",
+        "action": "answers Q-CON-002-SHARE and proposes RULE-001"
+      },
+      {
+        "step": 3,
+        "actor": "human_controller",
+        "action": "approves WI-RULE-001; RULE-001 becomes active",
+        "work_item": "WI-RULE-001"
+      },
+      {
+        "step": 4,
+        "actor": "human_controller",
+        "action": "uploads the Harbor waiver (PB-C3, evidence) -> WI-CUST-002-CLOSE closes at 0.00; RULE-001 is unaffected",
+        "work_item": "WI-CUST-002-CLOSE"
+      },
+      {
+        "step": 5,
+        "actor": "desk (revenue accountant)",
+        "action": "applies RULE-001 to CON-003 (240.00, JE-6, no question to anyone) and CON-004 (0.00, no 2025 invoices)",
+        "work_item": "WI-CUST-003-CREDIT"
+      }
+    ],
+    "rule": {
+      "id": "RULE-001",
+      "scope": "contracts with template=distributor AND clause 7.2 contains \"equitably and consistently with its treatment of similarly situated distributors\"",
+      "scope_predicate": {
+        "template": "distributor",
+        "clause_7_2_contains": "equitably and consistently with its treatment of similarly situated distributors"
+      },
+      "rule": "credit the full tariff surcharge on affected machines when the underlying duties are refunded, unless a written waiver covers the invoice"
+    },
+    "similar_contracts_found": [
+      "CON-003",
+      "CON-004"
+    ],
+    "after_approval": {
+      "CUST-003": 240.0,
+      "CUST-004": 0.0
+    },
+    "pass_if": "the next distributor-template contract is handled without a question to anyone"
+  },
+  "decisive_facts": {
+    "CUST-001": [
+      "CON-001 clause 7.2: Brewline credits the full Tariff Surcharge billed on affected machines when the underlying duties are refunded",
+      "Invoice surcharge lines INV-1001 (1152.00) and INV-1002 (480.00) tie to shipments SHP-001, SHP-002, SHP-003, all in refund RFD-001"
+    ]
+  },
+  "pushback": {
+    "2025-10-16-cfo-email.md": {
+      "class": "authority",
+      "changes_decision": false
+    },
+    "2025-10-18-harbor-waiver.md": {
+      "class": "evidence",
+      "changes_decision": true,
+      "decision": "CUST-002 credit 0.00"
+    }
+  },
+  "tie_outs": {
+    "bank_balance_2025-10-01": 332558.0,
+    "inventory_parts_2025-10-01": 127980.0,
+    "inventory_parts_2025-10-01_after_reclass": 185952.0,
+    "duty_on_hand_capitalized_2025-10-01": 57972.0,
+    "erp_on_hand_value": 127980.0,
+    "erp_on_hand_landed_value": 185952.0,
+    "erp_on_hand_landed_value_formula": "sum(qty_on_hand x (unit_cost + duty_per_unit)) over inventory_layers",
+    "duties_per_cbp": 59790.0,
+    "refund_split_adds_up": "768.00 + 13132.00 = 13900.00",
+    "cogs_tariff_end_of_history": -22582.0,
+    "duties_paid_per_books": 59790.0,
+    "duties_paid_equals_cbp": "59790.00 = 59790.00; Brewline pays CBP directly, so the books agree with the 7501 by construction",
+    "final_balances_after_JE-1_to_JE-5": {
+      "Expenses:COGS:Tariff": 1050.0,
+      "Assets:Inventory:Parts": 172820.0,
+      "Assets:Receivable:TariffRefund": 0.0,
+      "Liabilities:CustomerCredits": -1872.0,
+      "Income:Interest:TariffRefund": -417.0
+    }
+  },
+  "notes": {
+    "JE-4_is_correct": "JE-4 debits Expenses:COGS:Tariff 13,132.00 and credits Assets:Inventory:Parts 13,132.00. That is right because of two earlier events. (1) The 2025-09-30 accrual booked the whole expected refund as a credit to Expenses:COGS:Tariff, so no refund sat in inventory at that point. (2) On 2025-10-01, at POL-001 1.1 adoption, the controller moved the duty on parts then on hand (57,972.00) out of Expenses:COGS:Tariff and into Assets:Inventory:Parts. So by the refund date the duty attributable to parts still on hand lives in inventory: the 13,132.00 on-hand portion of the refund must reduce Assets:Inventory:Parts, while only the 768.00 on parts already sold belongs in COGS.",
+    "duty_per_unit": "duty_per_unit on inventory_layers = CBP 7501 duty for all programs on the entry / qty_received: boards 90.00, frames 210.00, burrs 12.00.",
+    "broker_removed": "Brewline pays CBP directly. There is no customs broker, no broker fee and no broker overbilling, so the only planted mistake is PM-1: Section 232 duty in the refund forecast. Duties paid per the books equal the 7501 total, 59,790.00.",
+    "JE_renumbering": "The old JE-2 was the broker claim and is gone. JE-3..JE-6 became JE-2..JE-5; each entry carries its former id in `was` so older notes can still be followed."
+  }
+}

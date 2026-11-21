@@ -1,0 +1,22 @@
+[
+  {
+    "refund_id": "RFD-001",
+    "notice_date": "2025-10-14",
+    "payment_date": "2025-10-15",
+    "payment_method": "ACH",
+    "payee": "Brewline Equipment Co.",
+    "importer_no": "12-3456789AB",
+    "reason": "Refund of IEEPA duties on liquidated entries following court vacatur; interest per 19 U.S.C. 1505(c)",
+    "entries": [
+      {"entry_no": "BRK-2500101-1", "program": "IEEPA_CN", "hts_ch99": "9903.01.24", "principal": 4000.00, "interest": 120.00},
+      {"entry_no": "BRK-2500128-2", "program": "IEEPA_CN", "hts_ch99": "9903.01.24", "principal": 2400.00, "interest": 72.00},
+      {"entry_no": "BRK-2500211-3", "program": "IEEPA_EU", "hts_ch99": "9903.02.19", "principal": 1200.00, "interest": 36.00},
+      {"entry_no": "BRK-2500225-4", "program": "IEEPA_CN", "hts_ch99": "9903.01.24", "principal": 3000.00, "interest": 90.00},
+      {"entry_no": "BRK-2500311-5", "program": "IEEPA_CN", "hts_ch99": "9903.01.24", "principal": 1800.00, "interest": 54.00},
+      {"entry_no": "BRK-2500325-6", "program": "IEEPA_EU", "hts_ch99": "9903.02.19", "principal": 1500.00, "interest": 45.00}
+    ],
+    "total_principal": 13900.00,
+    "total_interest": 417.00,
+    "total": 14317.00
+  }
+]

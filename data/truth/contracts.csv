@@ -1,0 +1,5 @@
+contract_id,customer_id,effective_date,template,file
+CON-001,CUST-001,2025-01-10,direct,data/documents/contracts/CON-001-bean-street.md
+CON-002,CUST-002,2025-01-20,distributor,data/documents/contracts/CON-002-harbor.md
+CON-003,CUST-003,2025-02-03,distributor,data/documents/contracts/CON-003-northwind.md
+CON-004,CUST-004,2025-02-17,distributor,data/documents/contracts/CON-004-cascade.md

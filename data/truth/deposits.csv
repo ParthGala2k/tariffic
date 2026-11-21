@@ -1,0 +1,2 @@
+deposit_id,refund_id,date,amount,principal,interest,payer,entry_description,company_id,addenda
+DEP-001,RFD-001,2025-10-15,14317.0,13900.0,417.0,US TREASURY 310,CBP REFUND,9101036151,123456789AB 2500101 2500128 2500211 2500225 2500311 2500325

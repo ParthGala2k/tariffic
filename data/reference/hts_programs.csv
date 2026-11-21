@@ -1,0 +1,6 @@
+program_id,name,hts_ch99,rate_pct,applies_to_origin,applies_to_hts,effective_from,effective_to,refundable,refund_basis,note
+IEEPA_CN,IEEPA fentanyl/border tariff on China,9903.01.24,20,CN,ANY,2025-01-01,,yes,Vacated by court; liquidated entries refunded with interest,illustrative rate and dates; verify on USITC HTS before the event
+IEEPA_EU,IEEPA reciprocal tariff on EU,9903.02.19,15,IT|PL,ANY,2025-01-01,,yes,Vacated by court; liquidated entries refunded with interest,illustrative rate and dates; verify on USITC HTS before the event
+S232_STEEL,Section 232 steel and steel derivatives,9903.81.91,50,ANY,7326,2025-01-01,,no,Not covered by the IEEPA ruling,illustrative rate; verify
+S301_CN,Section 301 China List 3,9903.88.03,25,CN,8537,2018-09-24,,no,Not covered by the IEEPA ruling,
+S122,Section 122 balance-of-payments tariff,9903.03.01,15,ANY,ANY,2026-02-24,2026-07-23,no,Pending; track deadlines only,stretch scenario

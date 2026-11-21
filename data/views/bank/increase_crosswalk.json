@@ -1,0 +1,248 @@
+{
+  "account_id": "sandbox_account_z5qty1gw9eumlsgqwihq",
+  "account_number_id": "sandbox_account_number_3wkro9t9x79l7wftz783",
+  "transactions": {
+    "BNK-0001": {
+      "kind": "inbound_wire",
+      "id": "sandbox_inbound_wire_transfer_xb4rjk4oulw8vfqoc1l4",
+      "status": "accepted",
+      "date_in_world": "2025-01-01",
+      "amount": "500000.00",
+      "counterparty": "BREWLINE HOLDINGS LLC",
+      "description": "INITIAL FUNDING"
+    },
+    "BNK-0002": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_4me8cqrre4cjzvnwdz9u",
+      "status": "submitted",
+      "date_in_world": "2025-01-24",
+      "amount": "9150.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25001"
+    },
+    "BNK-0003": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_4pajo8p6zadeqkskafly",
+      "status": "submitted",
+      "date_in_world": "2025-02-07",
+      "amount": "8550.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25002"
+    },
+    "BNK-0004": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_w5vdnou7ic4issv9ty98",
+      "status": "complete",
+      "date_in_world": "2025-02-13",
+      "amount": "20000.00",
+      "counterparty": "SHENZHEN BOARDWORKS LTD",
+      "description": "WIRE OUT PO-2501"
+    },
+    "BNK-0005": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_lvxhsqc7tvd1bww3ih2u",
+      "status": "submitted",
+      "date_in_world": "2025-02-21",
+      "amount": "1350.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25003"
+    },
+    "BNK-0006": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_i83q49xkst03go9s5z1j",
+      "status": "complete",
+      "date_in_world": "2025-02-27",
+      "amount": "12000.00",
+      "counterparty": "NINGBO STEELFORM CO",
+      "description": "WIRE OUT PO-2502"
+    },
+    "BNK-0007": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_nbbnzxmf1ugki895g1ky",
+      "status": "submitted",
+      "date_in_world": "2025-03-07",
+      "amount": "7200.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25004"
+    },
+    "BNK-0008": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_mb1k2krjpn6yb38n7tly",
+      "status": "complete",
+      "date_in_world": "2025-03-13",
+      "amount": "8000.00",
+      "counterparty": "MILANO GRIND S.R.L.",
+      "description": "WIRE OUT PO-2503"
+    },
+    "BNK-0009": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_vd7z0mr7rnhqqnu3e6ns",
+      "status": "submitted",
+      "date_in_world": "2025-03-21",
+      "amount": "6450.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25005"
+    },
+    "BNK-0010": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_bxi547uyzq4spt8np94n",
+      "status": "complete",
+      "date_in_world": "2025-03-27",
+      "amount": "15000.00",
+      "counterparty": "SHENZHEN BOARDWORKS LTD",
+      "description": "WIRE OUT PO-2504"
+    },
+    "BNK-0011": {
+      "kind": "inbound_ach",
+      "id": "sandbox_inbound_ach_transfer_ytbc3iyp3ihig81zcm6o",
+      "status": "accepted",
+      "date_in_world": "2025-04-01",
+      "amount": "10752.00",
+      "counterparty": "BEAN STREET COFFEE CO.",
+      "description": "ACH CREDIT INV-1001"
+    },
+    "BNK-0012": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_xq9kah8t8l87zpxv1d3l",
+      "status": "submitted",
+      "date_in_world": "2025-04-04",
+      "amount": "1650.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25006"
+    },
+    "BNK-0013": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_bv6bncsv1f1dx6qpthm4",
+      "status": "complete",
+      "date_in_world": "2025-04-10",
+      "amount": "9000.00",
+      "counterparty": "NINGBO STEELFORM CO",
+      "description": "WIRE OUT PO-2505"
+    },
+    "BNK-0014": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_h5zgcyd9p5snevzzz8wd",
+      "status": "complete",
+      "date_in_world": "2025-04-24",
+      "amount": "10000.00",
+      "counterparty": "MILANO GRIND S.R.L.",
+      "description": "WIRE OUT PO-2506"
+    },
+    "BNK-0015": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_rd6aasyguce8250mkj9k",
+      "status": "submitted",
+      "date_in_world": "2025-04-25",
+      "amount": "8250.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25007"
+    },
+    "BNK-0016": {
+      "kind": "inbound_ach",
+      "id": "sandbox_inbound_ach_transfer_zqa6u53q0b8d6rtd8uek",
+      "status": "accepted",
+      "date_in_world": "2025-04-30",
+      "amount": "5480.00",
+      "counterparty": "BEAN STREET COFFEE CO.",
+      "description": "ACH CREDIT INV-1002"
+    },
+    "BNK-0017": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_bldnrn2bsvmjmcns4zaf",
+      "status": "complete",
+      "date_in_world": "2025-05-15",
+      "amount": "18000.00",
+      "counterparty": "SHENZHEN BOARDWORKS LTD",
+      "description": "WIRE OUT PO-2507"
+    },
+    "BNK-0018": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_4axjcxoqc57vg2uzvylm",
+      "status": "submitted",
+      "date_in_world": "2025-05-16",
+      "amount": "7710.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25008"
+    },
+    "BNK-0019": {
+      "kind": "inbound_ach",
+      "id": "sandbox_inbound_ach_transfer_otj039mvk79znt6tni9g",
+      "status": "accepted",
+      "date_in_world": "2025-05-20",
+      "amount": "5376.00",
+      "counterparty": "HARBOR ROASTERS",
+      "description": "ACH CREDIT INV-1003"
+    },
+    "BNK-0020": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_jn45m4vdcwdwxqaa4kdn",
+      "status": "complete",
+      "date_in_world": "2025-06-05",
+      "amount": "10800.00",
+      "counterparty": "NINGBO STEELFORM CO",
+      "description": "WIRE OUT PO-2508"
+    },
+    "BNK-0021": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_nrnnm79wue9s0rsq9mkq",
+      "status": "submitted",
+      "date_in_world": "2025-06-06",
+      "amount": "1230.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25009"
+    },
+    "BNK-0022": {
+      "kind": "inbound_ach",
+      "id": "sandbox_inbound_ach_transfer_do9f8z8llmehivfacbq4",
+      "status": "accepted",
+      "date_in_world": "2025-06-12",
+      "amount": "2740.00",
+      "counterparty": "NORTHWIND DISTRIBUTION",
+      "description": "ACH CREDIT INV-1004"
+    },
+    "BNK-0023": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_tsia6mo8ocpycybfnoqz",
+      "status": "complete",
+      "date_in_world": "2025-06-26",
+      "amount": "7200.00",
+      "counterparty": "MILANO GRIND S.R.L.",
+      "description": "WIRE OUT PO-2509"
+    },
+    "BNK-0024": {
+      "kind": "ach_out",
+      "id": "sandbox_ach_transfer_0f6eldpx7z71bltdygt5",
+      "status": "submitted",
+      "date_in_world": "2025-06-27",
+      "amount": "10050.00",
+      "counterparty": "US CUSTOMS AND BORDER PROTECTION",
+      "description": "ACH PMT BRK-INV-25010"
+    },
+    "BNK-0025": {
+      "kind": "wire_out",
+      "id": "sandbox_wire_transfer_iy16uz3jnhworzq5up6s",
+      "status": "complete",
+      "date_in_world": "2025-07-17",
+      "amount": "22000.00",
+      "counterparty": "SHENZHEN BOARDWORKS LTD",
+      "description": "WIRE OUT PO-2510"
+    },
+    "BNK-0026": {
+      "kind": "inbound_ach",
+      "id": "sandbox_inbound_ach_transfer_lpozm9uzhflikrbdksqg",
+      "status": "accepted",
+      "date_in_world": "2025-10-15",
+      "amount": "14317.00",
+      "counterparty": "US TREASURY 310",
+      "description": "CBP REFUND"
+    }
+  },
+  "balance": {
+    "type": "balance_lookup",
+    "account_id": "sandbox_account_z5qty1gw9eumlsgqwihq",
+    "current_balance": 34507500,
+    "available_balance": 34507500,
+    "loan": null
+  },
+  "transaction_count": 26
+}

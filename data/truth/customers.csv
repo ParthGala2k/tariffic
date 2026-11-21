@@ -1,0 +1,5 @@
+customer_id,name,email,contract_id,passthrough_clause
+CUST-001,Bean Street Coffee Co.,billing@beanstreet.example,CON-001,explicit
+CUST-002,Harbor Roasters,ap@harborroasters.example,CON-002,ambiguous
+CUST-003,Northwind Distribution,ap@northwind.example,CON-003,ambiguous
+CUST-004,Cascade Coffee Supply,ap@cascadecoffee.example,CON-004,ambiguous

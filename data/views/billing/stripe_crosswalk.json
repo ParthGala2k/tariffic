@@ -1,0 +1,43 @@
+{
+  "customers": {
+    "CUST-001": "cus_VUcpOdfhXaXswN",
+    "CUST-002": "cus_VUcpdqmZnHJaQv",
+    "CUST-003": "cus_VUcpDOLrjWZzG2",
+    "CUST-004": "cus_VUcpmfIeouNUwI"
+  },
+  "products": {
+    "MCH-ESP1": "prod_VUcpwKsC0pvDqW",
+    "MCH-GRD1": "prod_VUcpUJBAIfoSdW",
+    "SURCHARGE": "prod_VUcqd5t1tKNoWR"
+  },
+  "invoices": {
+    "INV-1001": {
+      "id": "in_1UTdaK2RkvzIsz1tOUCJ8yA0",
+      "status": "paid",
+      "total": 1075200
+    },
+    "INV-1002": {
+      "id": "in_1UTdaP2RkvzIsz1tXKrXU7NL",
+      "status": "paid",
+      "total": 548000
+    },
+    "INV-1003": {
+      "id": "in_1UTdaT2RkvzIsz1tobsDNchn",
+      "status": "paid",
+      "total": 537600
+    },
+    "INV-1004": {
+      "id": "in_1UTdaX2RkvzIsz1tczT7k4cE",
+      "status": "paid",
+      "total": 274000
+    }
+  },
+  "credit_notes": {
+    "WI-0001": {
+      "id": "cn_1UTdac2RkvzIsz1tJXRQCvos",
+      "amount": 115200,
+      "status": "issued",
+      "invoice": "in_1UTdaK2RkvzIsz1tOUCJ8yA0"
+    }
+  }
+}

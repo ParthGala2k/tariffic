@@ -1,0 +1,17 @@
+[
+  {
+    "truth_id": "MCH-ESP1",
+    "name": "Brewline Espresso X1",
+    "unit_amount": 480000
+  },
+  {
+    "truth_id": "MCH-GRD1",
+    "name": "Brewline Grinder Pro",
+    "unit_amount": 125000
+  },
+  {
+    "truth_id": "SURCHARGE",
+    "name": "Tariff surcharge",
+    "unit_amount": null
+  }
+]

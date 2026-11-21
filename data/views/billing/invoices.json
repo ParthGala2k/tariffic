@@ -1,0 +1,150 @@
+[
+  {
+    "truth_id": "INV-1001",
+    "customer": "CUST-001",
+    "date": "2025-03-05",
+    "paid_out_of_band": "2025-04-01",
+    "collection_method": "send_invoice",
+    "days_until_due": 30,
+    "metadata": {
+      "truth_id": "INV-1001",
+      "contract_id": "CON-001"
+    },
+    "lines": [
+      {
+        "kind": "machine",
+        "product": "MCH-ESP1",
+        "quantity": 2,
+        "unit_amount": 480000,
+        "metadata": {
+          "line_kind": "machine",
+          "machine_id": "MCH-ESP1"
+        }
+      },
+      {
+        "kind": "tariff_surcharge",
+        "product": "SURCHARGE",
+        "quantity": 1,
+        "unit_amount": 115200,
+        "description": "Tariff surcharge (IEEPA) on SHP-001,SHP-002,SHP-003",
+        "metadata": {
+          "line_kind": "tariff_surcharge",
+          "shipment_ids": "SHP-001,SHP-002,SHP-003",
+          "tariff_program": "IEEPA",
+          "surcharge_basis": "12.0% of machine price"
+        }
+      }
+    ]
+  },
+  {
+    "truth_id": "INV-1002",
+    "customer": "CUST-001",
+    "date": "2025-04-02",
+    "paid_out_of_band": "2025-04-30",
+    "collection_method": "send_invoice",
+    "days_until_due": 30,
+    "metadata": {
+      "truth_id": "INV-1002",
+      "contract_id": "CON-001"
+    },
+    "lines": [
+      {
+        "kind": "machine",
+        "product": "MCH-GRD1",
+        "quantity": 4,
+        "unit_amount": 125000,
+        "metadata": {
+          "line_kind": "machine",
+          "machine_id": "MCH-GRD1"
+        }
+      },
+      {
+        "kind": "tariff_surcharge",
+        "product": "SURCHARGE",
+        "quantity": 1,
+        "unit_amount": 48000,
+        "description": "Tariff surcharge (IEEPA) on SHP-001,SHP-003",
+        "metadata": {
+          "line_kind": "tariff_surcharge",
+          "shipment_ids": "SHP-001,SHP-003",
+          "tariff_program": "IEEPA",
+          "surcharge_basis": "9.6% of machine price"
+        }
+      }
+    ]
+  },
+  {
+    "truth_id": "INV-1003",
+    "customer": "CUST-002",
+    "date": "2025-04-22",
+    "paid_out_of_band": "2025-05-20",
+    "collection_method": "send_invoice",
+    "days_until_due": 30,
+    "metadata": {
+      "truth_id": "INV-1003",
+      "contract_id": "CON-002"
+    },
+    "lines": [
+      {
+        "kind": "machine",
+        "product": "MCH-ESP1",
+        "quantity": 1,
+        "unit_amount": 480000,
+        "metadata": {
+          "line_kind": "machine",
+          "machine_id": "MCH-ESP1"
+        }
+      },
+      {
+        "kind": "tariff_surcharge",
+        "product": "SURCHARGE",
+        "quantity": 1,
+        "unit_amount": 57600,
+        "description": "Tariff surcharge (IEEPA) on SHP-001,SHP-002,SHP-003",
+        "metadata": {
+          "line_kind": "tariff_surcharge",
+          "shipment_ids": "SHP-001,SHP-002,SHP-003",
+          "tariff_program": "IEEPA",
+          "surcharge_basis": "12.0% of machine price"
+        }
+      }
+    ]
+  },
+  {
+    "truth_id": "INV-1004",
+    "customer": "CUST-003",
+    "date": "2025-05-14",
+    "paid_out_of_band": "2025-06-12",
+    "collection_method": "send_invoice",
+    "days_until_due": 30,
+    "metadata": {
+      "truth_id": "INV-1004",
+      "contract_id": "CON-003"
+    },
+    "lines": [
+      {
+        "kind": "machine",
+        "product": "MCH-GRD1",
+        "quantity": 2,
+        "unit_amount": 125000,
+        "metadata": {
+          "line_kind": "machine",
+          "machine_id": "MCH-GRD1"
+        }
+      },
+      {
+        "kind": "tariff_surcharge",
+        "product": "SURCHARGE",
+        "quantity": 1,
+        "unit_amount": 24000,
+        "description": "Tariff surcharge (IEEPA) on SHP-001,SHP-003",
+        "metadata": {
+          "line_kind": "tariff_surcharge",
+          "shipment_ids": "SHP-001,SHP-003",
+          "tariff_program": "IEEPA",
+          "surcharge_basis": "9.6% of machine price"
+        }
+      }
+    ]
+  }
+]
