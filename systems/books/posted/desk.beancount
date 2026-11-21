@@ -1,0 +1,42 @@
+; Gateway-only file. The desk's gateway appends approved journal entries here.
+; Nothing else writes to this file. Every entry carries work_item and approved_by metadata.
+
+2025-10-14 * "Remove Section 232 duty from the refund forecast"
+  work_item: "WI-0006"
+  approved_by: "human_controller"
+  policy: "POL-L1"
+  programs: "S232_STEEL"
+  entries: "BRK-2500128-2,BRK-2500311-5"
+  Expenses:COGS:Tariff                         10,500.00 USD
+  Assets:Receivable:TariffRefund              -10,500.00 USD
+
+2025-10-15 * "Record CBP refund RFD-001 deposit"
+  work_item: "WI-0007"
+  approved_by: "human_controller"
+  refund: "RFD-001"
+  bank_txn: "BNK-0026"
+  policy: "POL-001"
+  entries: "BRK-2500101-1,BRK-2500128-2,BRK-2500211-3,BRK-2500225-4,BRK-2500311-5,BRK-2500325-6"
+  Assets:Bank:Increase:Operating               14,317.00 USD
+  Assets:Receivable:TariffRefund              -13,900.00 USD
+  Income:Interest:TariffRefund                   -417.00 USD
+
+2025-10-15 * "Refund split: on-hand portion out of inventory"
+  work_item: "WI-0008"
+  approved_by: "human_controller"
+  policy: "POL-L2"
+  refund: "RFD-001"
+  to_cogs: "768.00"
+  to_inventory: "13132.00"
+  Expenses:COGS:Tariff                         13,132.00 USD
+  Assets:Inventory:Parts                      -13,132.00 USD
+
+2025-10-15 * "Bean Street tariff surcharge credit (CON-001 clause 7.2)"
+  work_item: "WI-0009"
+  approved_by: "human_controller"
+  customer: "CUST-001"
+  contract: "CON-001"
+  refund: "RFD-001"
+  credit_notes: "INV-1001 1152.00, INV-1002 480.00"
+  Income:Sales:TariffSurcharge                  1,632.00 USD
+  Liabilities:CustomerCredits                  -1,632.00 USD

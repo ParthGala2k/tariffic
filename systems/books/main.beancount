@@ -1,0 +1,6 @@
+option "title" "Brewline Equipment Co."
+option "operating_currency" "USD"
+
+include "accounts.beancount"
+include "history/2025.beancount"
+include "posted/desk.beancount"

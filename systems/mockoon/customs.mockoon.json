@@ -1,0 +1,142 @@
+{
+  "uuid": "c0b41fc3-5d9c-4b3b-8f2a-6e174853bcf8",
+  "lastMigration": 33,
+  "name": "Brewline customs",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "39edeeb1-10f0-4b68-bfbd-5f5b9b2203cc",
+      "type": "crud",
+      "documentation": "CBP entry summaries (7501-style)",
+      "method": "",
+      "endpoint": "cbp/entries",
+      "responses": [
+        {
+          "uuid": "0556710b-6e15-4783-bea4-65b38008b180",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "ent1",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "entry_no",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "472ab0eb-de92-46a7-88b0-d3ff63077f6c",
+      "type": "crud",
+      "documentation": "CBP refund notices",
+      "method": "",
+      "endpoint": "cbp/refunds",
+      "responses": [
+        {
+          "uuid": "423ae202-3788-4bf0-9967-fe1e5b9a5d5b",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "rfd1",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "refund_id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "39edeeb1-10f0-4b68-bfbd-5f5b9b2203cc"
+    },
+    {
+      "type": "route",
+      "uuid": "472ab0eb-de92-46a7-88b0-d3ff63077f6c"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "17ed599d-256b-4e6e-8c02-2ed5cb245ff8",
+      "id": "ent1",
+      "name": "cbp_entries",
+      "documentation": "CBP entry summaries (7501-style)",
+      "value": "[\n  {\n    \"entry_no\": \"BRK-2500101-1\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-01-14\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2501\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Shenzhen Boardworks Ltd\",\n    \"commercial_hts\": \"8537.10.91\",\n    \"description\": \"Electronic controller boards for coffee machines\",\n    \"entered_value\": 20000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 4000.0\n      },\n      {\n        \"program\": \"S301_CN\",\n        \"hts_ch99\": \"9903.88.03\",\n        \"rate_pct\": 25,\n        \"duty\": 5000.0\n      }\n    ],\n    \"total_duty\": 9000.0,\n    \"liquidation_status\": \"liquidated\",\n    \"liquidation_date\": \"2025-09-19\",\n    \"refund_status\": \"refunded\",\n    \"refund_id\": \"RFD-001\"\n  },\n  {\n    \"entry_no\": \"BRK-2500128-2\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-01-28\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2502\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Ningbo Steelform Co\",\n    \"commercial_hts\": \"7326.90.86\",\n    \"description\": \"Fabricated steel frames\",\n    \"entered_value\": 12000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 2400.0\n      },\n      {\n        \"program\": \"S232_STEEL\",\n        \"hts_ch99\": \"9903.81.91\",\n        \"rate_pct\": 50,\n        \"duty\": 6000.0\n      }\n    ],\n    \"total_duty\": 8400.0,\n    \"liquidation_status\": \"liquidated\",\n    \"liquidation_date\": \"2025-09-19\",\n    \"refund_status\": \"refunded\",\n    \"refund_id\": \"RFD-001\"\n  },\n  {\n    \"entry_no\": \"BRK-2500211-3\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-02-11\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2503\",\n    \"country_of_origin\": \"IT\",\n    \"exporter\": \"Milano Grind S.r.l.\",\n    \"commercial_hts\": \"8509.90.55\",\n    \"description\": \"Grinder burr sets\",\n    \"entered_value\": 8000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_EU\",\n        \"hts_ch99\": \"9903.02.19\",\n        \"rate_pct\": 15,\n        \"duty\": 1200.0\n      }\n    ],\n    \"total_duty\": 1200.0,\n    \"liquidation_status\": \"liquidated\",\n    \"liquidation_date\": \"2025-09-19\",\n    \"refund_status\": \"refunded\",\n    \"refund_id\": \"RFD-001\"\n  },\n  {\n    \"entry_no\": \"BRK-2500225-4\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-02-25\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2504\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Shenzhen Boardworks Ltd\",\n    \"commercial_hts\": \"8537.10.91\",\n    \"description\": \"Electronic controller boards for coffee machines\",\n    \"entered_value\": 15000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 3000.0\n      },\n      {\n        \"program\": \"S301_CN\",\n        \"hts_ch99\": \"9903.88.03\",\n        \"rate_pct\": 25,\n        \"duty\": 3750.0\n      }\n    ],\n    \"total_duty\": 6750.0,\n    \"liquidation_status\": \"liquidated\",\n    \"liquidation_date\": \"2025-09-19\",\n    \"refund_status\": \"refunded\",\n    \"refund_id\": \"RFD-001\"\n  },\n  {\n    \"entry_no\": \"BRK-2500311-5\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-03-11\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2505\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Ningbo Steelform Co\",\n    \"commercial_hts\": \"7326.90.86\",\n    \"description\": \"Fabricated steel frames\",\n    \"entered_value\": 9000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 1800.0\n      },\n      {\n        \"program\": \"S232_STEEL\",\n        \"hts_ch99\": \"9903.81.91\",\n        \"rate_pct\": 50,\n        \"duty\": 4500.0\n      }\n    ],\n    \"total_duty\": 6300.0,\n    \"liquidation_status\": \"liquidated\",\n    \"liquidation_date\": \"2025-09-19\",\n    \"refund_status\": \"refunded\",\n    \"refund_id\": \"RFD-001\"\n  },\n  {\n    \"entry_no\": \"BRK-2500325-6\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-03-25\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2506\",\n    \"country_of_origin\": \"IT\",\n    \"exporter\": \"Milano Grind S.r.l.\",\n    \"commercial_hts\": \"8509.90.55\",\n    \"description\": \"Grinder burr sets\",\n    \"entered_value\": 10000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_EU\",\n        \"hts_ch99\": \"9903.02.19\",\n        \"rate_pct\": 15,\n        \"duty\": 1500.0\n      }\n    ],\n    \"total_duty\": 1500.0,\n    \"liquidation_status\": \"liquidated\",\n    \"liquidation_date\": \"2025-09-19\",\n    \"refund_status\": \"refunded\",\n    \"refund_id\": \"RFD-001\"\n  },\n  {\n    \"entry_no\": \"BRK-2500415-7\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-04-15\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2507\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Shenzhen Boardworks Ltd\",\n    \"commercial_hts\": \"8537.10.91\",\n    \"description\": \"Electronic controller boards for coffee machines\",\n    \"entered_value\": 18000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 3600.0\n      },\n      {\n        \"program\": \"S301_CN\",\n        \"hts_ch99\": \"9903.88.03\",\n        \"rate_pct\": 25,\n        \"duty\": 4500.0\n      }\n    ],\n    \"total_duty\": 8100.0,\n    \"liquidation_status\": \"unliquidated\",\n    \"liquidation_date\": null,\n    \"refund_status\": \"pending\",\n    \"refund_id\": null\n  },\n  {\n    \"entry_no\": \"BRK-2500506-8\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-05-06\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2508\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Ningbo Steelform Co\",\n    \"commercial_hts\": \"7326.90.86\",\n    \"description\": \"Fabricated steel frames\",\n    \"entered_value\": 10800.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 2160.0\n      },\n      {\n        \"program\": \"S232_STEEL\",\n        \"hts_ch99\": \"9903.81.91\",\n        \"rate_pct\": 50,\n        \"duty\": 5400.0\n      }\n    ],\n    \"total_duty\": 7560.0,\n    \"liquidation_status\": \"unliquidated\",\n    \"liquidation_date\": null,\n    \"refund_status\": \"pending\",\n    \"refund_id\": null\n  },\n  {\n    \"entry_no\": \"BRK-2500527-9\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-05-27\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2509\",\n    \"country_of_origin\": \"IT\",\n    \"exporter\": \"Milano Grind S.r.l.\",\n    \"commercial_hts\": \"8509.90.55\",\n    \"description\": \"Grinder burr sets\",\n    \"entered_value\": 7200.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_EU\",\n        \"hts_ch99\": \"9903.02.19\",\n        \"rate_pct\": 15,\n        \"duty\": 1080.0\n      }\n    ],\n    \"total_duty\": 1080.0,\n    \"liquidation_status\": \"unliquidated\",\n    \"liquidation_date\": null,\n    \"refund_status\": \"pending\",\n    \"refund_id\": null\n  },\n  {\n    \"entry_no\": \"BRK-2500617-0\",\n    \"entry_type\": \"01\",\n    \"filer_code\": \"BRK\",\n    \"entry_date\": \"2025-06-17\",\n    \"port_of_entry\": \"2704\",\n    \"importer_of_record\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"importer_ref\": \"PO-2510\",\n    \"country_of_origin\": \"CN\",\n    \"exporter\": \"Shenzhen Boardworks Ltd\",\n    \"commercial_hts\": \"8537.10.91\",\n    \"description\": \"Electronic controller boards for coffee machines\",\n    \"entered_value\": 22000.0,\n    \"duty_lines\": [\n      {\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"rate_pct\": 20,\n        \"duty\": 4400.0\n      },\n      {\n        \"program\": \"S301_CN\",\n        \"hts_ch99\": \"9903.88.03\",\n        \"rate_pct\": 25,\n        \"duty\": 5500.0\n      }\n    ],\n    \"total_duty\": 9900.0,\n    \"liquidation_status\": \"unliquidated\",\n    \"liquidation_date\": null,\n    \"refund_status\": \"pending\",\n    \"refund_id\": null\n  }\n]"
+    },
+    {
+      "uuid": "036f4fc5-5516-40b4-a199-313fa71233cf",
+      "id": "rfd1",
+      "name": "cbp_refunds",
+      "documentation": "CBP refund notices",
+      "value": "[\n  {\n    \"refund_id\": \"RFD-001\",\n    \"notice_date\": \"2025-10-14\",\n    \"payment_date\": \"2025-10-15\",\n    \"payment_method\": \"ACH\",\n    \"payee\": \"Brewline Equipment Co.\",\n    \"importer_no\": \"12-3456789AB\",\n    \"reason\": \"Refund of IEEPA duties on liquidated entries following court vacatur; interest per 19 U.S.C. 1505(c)\",\n    \"entries\": [\n      {\n        \"entry_no\": \"BRK-2500101-1\",\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"principal\": 4000.0,\n        \"interest\": 120.0\n      },\n      {\n        \"entry_no\": \"BRK-2500128-2\",\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"principal\": 2400.0,\n        \"interest\": 72.0\n      },\n      {\n        \"entry_no\": \"BRK-2500211-3\",\n        \"program\": \"IEEPA_EU\",\n        \"hts_ch99\": \"9903.02.19\",\n        \"principal\": 1200.0,\n        \"interest\": 36.0\n      },\n      {\n        \"entry_no\": \"BRK-2500225-4\",\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"principal\": 3000.0,\n        \"interest\": 90.0\n      },\n      {\n        \"entry_no\": \"BRK-2500311-5\",\n        \"program\": \"IEEPA_CN\",\n        \"hts_ch99\": \"9903.01.24\",\n        \"principal\": 1800.0,\n        \"interest\": 54.0\n      },\n      {\n        \"entry_no\": \"BRK-2500325-6\",\n        \"program\": \"IEEPA_EU\",\n        \"hts_ch99\": \"9903.02.19\",\n        \"principal\": 1500.0,\n        \"interest\": 45.0\n      }\n    ],\n    \"total_principal\": 13900.0,\n    \"total_interest\": 417.0,\n    \"total\": 14317.0\n  }\n]"
+    }
+  ],
+  "callbacks": []
+}

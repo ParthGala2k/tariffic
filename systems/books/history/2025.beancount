@@ -1,0 +1,336 @@
+; Brewline Equipment Co. 2025 history (hand-written tiny world v1)
+; Policy in force during 2025: duties expensed to Expenses:COGS:Tariff when paid to CBP.
+
+2025-01-01 * "Opening balance"
+  Assets:Bank:Increase:Operating     500000.00 USD
+  Equity:Opening-Balances
+
+;; ---- SHP-001  boards 100 @ 200  CN  entry BRK-2500101-1 ----
+2025-01-14 * "Shenzhen Boardworks Ltd" "PO-2501 controller boards 100 @ 200.00"
+  po: "PO-2501"
+  shipment: "SHP-001"
+  Assets:Inventory:Parts              20000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-01-24 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500101-1"
+  entry_no: "BRK-2500101-1"
+  shipment: "SHP-001"
+  Expenses:COGS:Tariff                 4000.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 5000.00 USD
+    tariff_program: "S301_CN"
+  Assets:Bank:Increase:Operating
+
+2025-02-13 * "Shenzhen Boardworks Ltd" "Payment PO-2501"
+  po: "PO-2501"
+  Liabilities:Payable:Vendors         20000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-002  frames 40 @ 300  CN  entry BRK-2500128-2 ----
+2025-01-28 * "Ningbo Steelform Co" "PO-2502 steel frames 40 @ 300.00"
+  po: "PO-2502"
+  shipment: "SHP-002"
+  Assets:Inventory:Parts              12000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-02-07 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500128-2"
+  entry_no: "BRK-2500128-2"
+  shipment: "SHP-002"
+  Expenses:COGS:Tariff                 2400.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 6000.00 USD
+    tariff_program: "S232_STEEL"
+  Assets:Bank:Increase:Operating
+
+2025-02-27 * "Ningbo Steelform Co" "Payment PO-2502"
+  po: "PO-2502"
+  Liabilities:Payable:Vendors         12000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-003  burrs 100 @ 80  IT  entry BRK-2500211-3 ----
+2025-02-11 * "Milano Grind S.r.l." "PO-2503 burr sets 100 @ 80.00"
+  po: "PO-2503"
+  shipment: "SHP-003"
+  Assets:Inventory:Parts               8000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-02-21 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500211-3"
+  entry_no: "BRK-2500211-3"
+  shipment: "SHP-003"
+  Expenses:COGS:Tariff                 1200.00 USD
+    tariff_program: "IEEPA_EU"
+  Assets:Bank:Increase:Operating
+
+2025-03-13 * "Milano Grind S.r.l." "Payment PO-2503"
+  po: "PO-2503"
+  Liabilities:Payable:Vendors          8000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-004  boards 75 @ 200  CN  entry BRK-2500225-4 ----
+2025-02-25 * "Shenzhen Boardworks Ltd" "PO-2504 controller boards 75 @ 200.00"
+  po: "PO-2504"
+  shipment: "SHP-004"
+  Assets:Inventory:Parts              15000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-03-07 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500225-4"
+  entry_no: "BRK-2500225-4"
+  shipment: "SHP-004"
+  Expenses:COGS:Tariff                 3000.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 3750.00 USD
+    tariff_program: "S301_CN"
+  Assets:Bank:Increase:Operating
+
+2025-03-27 * "Shenzhen Boardworks Ltd" "Payment PO-2504"
+  po: "PO-2504"
+  Liabilities:Payable:Vendors         15000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-005  frames 30 @ 300  CN  entry BRK-2500311-5 ----
+2025-03-11 * "Ningbo Steelform Co" "PO-2505 steel frames 30 @ 300.00"
+  po: "PO-2505"
+  shipment: "SHP-005"
+  Assets:Inventory:Parts               9000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-03-21 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500311-5"
+  entry_no: "BRK-2500311-5"
+  shipment: "SHP-005"
+  Expenses:COGS:Tariff                 1800.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 4500.00 USD
+    tariff_program: "S232_STEEL"
+  Assets:Bank:Increase:Operating
+
+2025-04-10 * "Ningbo Steelform Co" "Payment PO-2505"
+  po: "PO-2505"
+  Liabilities:Payable:Vendors          9000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-006  burrs 125 @ 80  IT  entry BRK-2500325-6 ----
+2025-03-25 * "Milano Grind S.r.l." "PO-2506 burr sets 125 @ 80.00"
+  po: "PO-2506"
+  shipment: "SHP-006"
+  Assets:Inventory:Parts              10000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-04-04 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500325-6"
+  entry_no: "BRK-2500325-6"
+  shipment: "SHP-006"
+  Expenses:COGS:Tariff                 1500.00 USD
+    tariff_program: "IEEPA_EU"
+  Assets:Bank:Increase:Operating
+
+2025-04-24 * "Milano Grind S.r.l." "Payment PO-2506"
+  po: "PO-2506"
+  Liabilities:Payable:Vendors         10000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-007  boards 90 @ 200  CN  entry BRK-2500415-7 ----
+2025-04-15 * "Shenzhen Boardworks Ltd" "PO-2507 controller boards 90 @ 200.00"
+  po: "PO-2507"
+  shipment: "SHP-007"
+  Assets:Inventory:Parts              18000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-04-25 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500415-7"
+  entry_no: "BRK-2500415-7"
+  shipment: "SHP-007"
+  Expenses:COGS:Tariff                 3600.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 4500.00 USD
+    tariff_program: "S301_CN"
+  Assets:Bank:Increase:Operating
+
+2025-05-15 * "Shenzhen Boardworks Ltd" "Payment PO-2507"
+  po: "PO-2507"
+  Liabilities:Payable:Vendors         18000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-008  frames 36 @ 300  CN  entry BRK-2500506-8 ----
+2025-05-06 * "Ningbo Steelform Co" "PO-2508 steel frames 36 @ 300.00"
+  po: "PO-2508"
+  shipment: "SHP-008"
+  Assets:Inventory:Parts              10800.00 USD
+  Liabilities:Payable:Vendors
+
+2025-05-16 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500506-8"
+  entry_no: "BRK-2500506-8"
+  shipment: "SHP-008"
+  Expenses:COGS:Tariff                 2160.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 5400.00 USD
+    tariff_program: "S232_STEEL"
+  Assets:Bank:Increase:Operating
+
+2025-06-05 * "Ningbo Steelform Co" "Payment PO-2508"
+  po: "PO-2508"
+  Liabilities:Payable:Vendors         10800.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-009  burrs 90 @ 80  IT  entry BRK-2500527-9 ----
+2025-05-27 * "Milano Grind S.r.l." "PO-2509 burr sets 90 @ 80.00"
+  po: "PO-2509"
+  shipment: "SHP-009"
+  Assets:Inventory:Parts               7200.00 USD
+  Liabilities:Payable:Vendors
+
+2025-06-06 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500527-9"
+  entry_no: "BRK-2500527-9"
+  shipment: "SHP-009"
+  Expenses:COGS:Tariff                 1080.00 USD
+    tariff_program: "IEEPA_EU"
+  Assets:Bank:Increase:Operating
+
+2025-06-26 * "Milano Grind S.r.l." "Payment PO-2509"
+  po: "PO-2509"
+  Liabilities:Payable:Vendors          7200.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ---- SHP-010  boards 110 @ 200  CN  entry BRK-2500617-0 ----
+2025-06-17 * "Shenzhen Boardworks Ltd" "PO-2510 controller boards 110 @ 200.00"
+  po: "PO-2510"
+  shipment: "SHP-010"
+  Assets:Inventory:Parts              22000.00 USD
+  Liabilities:Payable:Vendors
+
+2025-06-27 * "U.S. Customs and Border Protection" "Duty payment, entry BRK-2500617-0"
+  entry_no: "BRK-2500617-0"
+  shipment: "SHP-010"
+  Expenses:COGS:Tariff                 4400.00 USD
+    tariff_program: "IEEPA_CN"
+  Expenses:COGS:Tariff                 5500.00 USD
+    tariff_program: "S301_CN"
+  Assets:Bank:Increase:Operating
+
+2025-07-17 * "Shenzhen Boardworks Ltd" "Payment PO-2510"
+  po: "PO-2510"
+  Liabilities:Payable:Vendors         22000.00 USD
+  Assets:Bank:Increase:Operating
+
+;; ================= SALES =================
+
+2025-03-05 * "Bean Street Coffee Co." "INV-1001: 2 x Espresso X1 + tariff surcharge" ^INV-1001
+  invoice: "INV-1001"
+  contract: "CON-001"
+  shipments: "SHP-001,SHP-002,SHP-003"
+  Assets:Receivable:Trade             10752.00 USD
+  Income:Sales:Machines               -9600.00 USD
+  Income:Sales:TariffSurcharge        -1152.00 USD
+    tariff_program: "IEEPA"
+
+2025-03-05 * "Bean Street Coffee Co." "COGS INV-1001" ^INV-1001
+  invoice: "INV-1001"
+  Expenses:COGS:Parts                  1560.00 USD
+  Assets:Inventory:Parts
+
+2025-04-01 * "Bean Street Coffee Co." "Payment INV-1001" ^INV-1001
+  invoice: "INV-1001"
+  Assets:Bank:Increase:Operating      10752.00 USD
+  Assets:Receivable:Trade
+
+2025-04-02 * "Bean Street Coffee Co." "INV-1002: 4 x Grinder Pro + tariff surcharge" ^INV-1002
+  invoice: "INV-1002"
+  contract: "CON-001"
+  shipments: "SHP-001,SHP-003"
+  Assets:Receivable:Trade              5480.00 USD
+  Income:Sales:Machines               -5000.00 USD
+  Income:Sales:TariffSurcharge         -480.00 USD
+    tariff_program: "IEEPA"
+
+2025-04-02 * "Bean Street Coffee Co." "COGS INV-1002" ^INV-1002
+  invoice: "INV-1002"
+  Expenses:COGS:Parts                  1120.00 USD
+  Assets:Inventory:Parts
+
+2025-04-30 * "Bean Street Coffee Co." "Payment INV-1002" ^INV-1002
+  invoice: "INV-1002"
+  Assets:Bank:Increase:Operating       5480.00 USD
+  Assets:Receivable:Trade
+
+2025-04-22 * "Harbor Roasters" "INV-1003: 1 x Espresso X1 + tariff surcharge" ^INV-1003
+  invoice: "INV-1003"
+  contract: "CON-002"
+  shipments: "SHP-001,SHP-002,SHP-003"
+  Assets:Receivable:Trade              5376.00 USD
+  Income:Sales:Machines               -4800.00 USD
+  Income:Sales:TariffSurcharge         -576.00 USD
+    tariff_program: "IEEPA"
+
+2025-04-22 * "Harbor Roasters" "COGS INV-1003" ^INV-1003
+  invoice: "INV-1003"
+  Expenses:COGS:Parts                   780.00 USD
+  Assets:Inventory:Parts
+
+2025-05-20 * "Harbor Roasters" "Payment INV-1003" ^INV-1003
+  invoice: "INV-1003"
+  Assets:Bank:Increase:Operating       5376.00 USD
+  Assets:Receivable:Trade
+
+2025-05-14 * "Northwind Distribution" "INV-1004: 2 x Grinder Pro + tariff surcharge" ^INV-1004
+  invoice: "INV-1004"
+  contract: "CON-003"
+  shipments: "SHP-001,SHP-003"
+  Assets:Receivable:Trade              2740.00 USD
+  Income:Sales:Machines               -2500.00 USD
+  Income:Sales:TariffSurcharge         -240.00 USD
+    tariff_program: "IEEPA"
+
+2025-05-14 * "Northwind Distribution" "COGS INV-1004" ^INV-1004
+  invoice: "INV-1004"
+  Expenses:COGS:Parts                   560.00 USD
+  Assets:Inventory:Parts
+
+2025-06-12 * "Northwind Distribution" "Payment INV-1004" ^INV-1004
+  invoice: "INV-1004"
+  Assets:Bank:Increase:Operating       2740.00 USD
+  Assets:Receivable:Trade
+
+;; ================= QUARTER-END ESTIMATE =================
+
+2025-09-30 * "Brewline Finance" "Tariff refund receivable on entries liquidated Sep-2025"
+  source: "controller_estimate"
+  estimate_basis: "IEEPA and Section 232 duties on liquidated entries, per the CBP 7501"
+  entries: "BRK-2500101-1,BRK-2500128-2,BRK-2500211-3,BRK-2500225-4,BRK-2500311-5,BRK-2500325-6"
+  Assets:Receivable:TariffRefund      24400.00 USD
+  Expenses:COGS:Tariff
+
+;; ================= TIE-OUTS =================
+
+2025-10-01 balance Assets:Bank:Increase:Operating    332558.00 USD
+2025-10-01 balance Assets:Inventory:Parts            127980.00 USD
+2025-10-01 balance Assets:Receivable:Trade                0.00 USD
+2025-10-01 balance Liabilities:Payable:Vendors            0.00 USD
+2025-10-01 balance Assets:Receivable:TariffRefund     24400.00 USD
+
+;; ================= POLICY ADOPTION 2025-10-01 =================
+;; POL-001 §1.1 takes effect: duties on parts still on hand move from COGS to inventory.
+;; Duty per unit = CBP 7501 duty, all programs, / qty received:
+;;   boards 90.00, frames 210.00, burrs 12.00.
+;; Amount per layer = duty per unit x qty on hand (ERP inventory_layers at 2025-10-01).
+
+2025-10-01 * "Capitalize duties on parts on hand at policy adoption (POL-001 §1.1)"
+  source: "controller"
+  policy: "POL-001"
+  Assets:Inventory:Parts               7920.00 USD
+    shipment: "SHP-001"
+  Assets:Inventory:Parts               7770.00 USD
+    shipment: "SHP-002"
+  Assets:Inventory:Parts               1092.00 USD
+    shipment: "SHP-003"
+  Assets:Inventory:Parts               6750.00 USD
+    shipment: "SHP-004"
+  Assets:Inventory:Parts               6300.00 USD
+    shipment: "SHP-005"
+  Assets:Inventory:Parts               1500.00 USD
+    shipment: "SHP-006"
+  Assets:Inventory:Parts               8100.00 USD
+    shipment: "SHP-007"
+  Assets:Inventory:Parts               7560.00 USD
+    shipment: "SHP-008"
+  Assets:Inventory:Parts               1080.00 USD
+    shipment: "SHP-009"
+  Assets:Inventory:Parts               9900.00 USD
+    shipment: "SHP-010"
+  Expenses:COGS:Tariff               -57972.00 USD

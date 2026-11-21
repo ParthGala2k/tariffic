@@ -1,0 +1,14 @@
+; Chart of accounts: Brewline Equipment Co.
+
+2025-01-01 open Assets:Bank:Increase:Operating      USD
+2025-01-01 open Assets:Receivable:Trade             USD
+2025-01-01 open Assets:Receivable:TariffRefund      USD
+2025-01-01 open Assets:Inventory:Parts              USD
+2025-01-01 open Liabilities:Payable:Vendors         USD
+2025-01-01 open Liabilities:CustomerCredits         USD
+2025-01-01 open Equity:Opening-Balances             USD
+2025-01-01 open Income:Sales:Machines               USD
+2025-01-01 open Income:Sales:TariffSurcharge        USD
+2025-01-01 open Income:Interest:TariffRefund        USD
+2025-01-01 open Expenses:COGS:Parts                 USD
+2025-01-01 open Expenses:COGS:Tariff                USD
