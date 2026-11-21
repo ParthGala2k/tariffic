@@ -1,0 +1,14 @@
+beancount==3.2.3
+fava==1.30.16
+
+# desk
+openai
+anthropic
+python-dotenv
+pyyaml
+pytest
+
+# api
+fastapi
+uvicorn
+httpx

@@ -1,0 +1,42 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+
+# regenerated data
+*.db
+systems/erp/*.db
+systems/desk/*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+node_modules/
+dist/
+
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# scenario sandboxes
+.sandbox/
+
+# llm response cache
+.cache/
+.local/
+
+# frontend
+frontend/node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
