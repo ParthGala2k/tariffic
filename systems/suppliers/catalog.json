@@ -1,0 +1,209 @@
+{
+  "_demo_notice": "DEMO DATA. This is a stand-in supplier directory served on localhost so the sourcing agent's scraper has something realistic to read. The company names, prices and lead times are invented for the demo. In production the same scraper runs against real directories and marketplaces.",
+  "currency": "USD",
+  "incoterm": "FOB",
+  "parts": [
+    {
+      "part_id": "PRT-BOARD",
+      "name": "Electronic controller board",
+      "hts_code": "8537.10.91",
+      "annual_quantity": 375,
+      "incumbent": {
+        "supplier": "Shenzhen Boardworks Ltd",
+        "country": "CN",
+        "unit_price": 200.0
+      },
+      "suppliers": [
+        {
+          "name": "Bharat Circuit Works Pvt Ltd",
+          "country": "IN",
+          "city": "Pune",
+          "unit_price": 198.0,
+          "moq": 250,
+          "lead_time_days": 42,
+          "certifications": [
+            "ISO 9001",
+            "IATF 16949"
+          ],
+          "years_trading": 14
+        },
+        {
+          "name": "Thang Long Electronics Co., Ltd",
+          "country": "VN",
+          "city": "Hanoi",
+          "unit_price": 208.0,
+          "moq": 200,
+          "lead_time_days": 35,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 9
+        },
+        {
+          "name": "Formosa Control Systems Inc.",
+          "country": "TW",
+          "city": "Taichung",
+          "unit_price": 215.0,
+          "moq": 100,
+          "lead_time_days": 28,
+          "certifications": [
+            "ISO 9001",
+            "UL listed"
+          ],
+          "years_trading": 22
+        },
+        {
+          "name": "Electronica Monterrey S.A. de C.V.",
+          "country": "MX",
+          "city": "Monterrey",
+          "unit_price": 222.0,
+          "moq": 150,
+          "lead_time_days": 18,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 11
+        },
+        {
+          "name": "Wroclaw Elektronika Sp. z o.o.",
+          "country": "PL",
+          "city": "Wroclaw",
+          "unit_price": 236.0,
+          "moq": 100,
+          "lead_time_days": 24,
+          "certifications": [
+            "ISO 9001",
+            "CE"
+          ],
+          "years_trading": 17
+        }
+      ]
+    },
+    {
+      "part_id": "PRT-FRAME",
+      "name": "Fabricated steel frame",
+      "hts_code": "7326.90.86",
+      "annual_quantity": 106,
+      "note_for_the_agent": "Steel. Section 232 applies to steel goods from ANY country, so moving this part out of China removes the China-specific tariff but NOT the 50% steel tariff. Check tariff_rates_for_origin rather than assuming.",
+      "incumbent": {
+        "supplier": "Ningbo Steelform Co",
+        "country": "CN",
+        "unit_price": 300.0
+      },
+      "suppliers": [
+        {
+          "name": "Gujarat Steel Fabricators Ltd",
+          "country": "IN",
+          "city": "Ahmedabad",
+          "unit_price": 288.0,
+          "moq": 50,
+          "lead_time_days": 45,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 19
+        },
+        {
+          "name": "Marmara Celik A.S.",
+          "country": "TR",
+          "city": "Izmit",
+          "unit_price": 296.0,
+          "moq": 40,
+          "lead_time_days": 30,
+          "certifications": [
+            "ISO 9001",
+            "EN 1090"
+          ],
+          "years_trading": 26
+        },
+        {
+          "name": "Aceros del Bajio S.A.",
+          "country": "MX",
+          "city": "Leon",
+          "unit_price": 305.0,
+          "moq": 25,
+          "lead_time_days": 15,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 13
+        },
+        {
+          "name": "Hai Phong Metalworks JSC",
+          "country": "VN",
+          "city": "Hai Phong",
+          "unit_price": 318.0,
+          "moq": 60,
+          "lead_time_days": 38,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 7
+        }
+      ]
+    },
+    {
+      "part_id": "PRT-BURR",
+      "name": "Grinder burr set",
+      "hts_code": "8509.90.55",
+      "annual_quantity": 315,
+      "incumbent": {
+        "supplier": "Milano Grind S.r.l.",
+        "country": "IT",
+        "unit_price": 80.0
+      },
+      "suppliers": [
+        {
+          "name": "Coimbatore Grinding Components Pvt Ltd",
+          "country": "IN",
+          "city": "Coimbatore",
+          "unit_price": 69.0,
+          "moq": 200,
+          "lead_time_days": 40,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 12
+        },
+        {
+          "name": "Da Nang Precision Tools Co.",
+          "country": "VN",
+          "city": "Da Nang",
+          "unit_price": 74.0,
+          "moq": 150,
+          "lead_time_days": 33,
+          "certifications": [
+            "ISO 9001"
+          ],
+          "years_trading": 8
+        },
+        {
+          "name": "Taichung Burr Technology Co., Ltd",
+          "country": "TW",
+          "city": "Taichung",
+          "unit_price": 82.0,
+          "moq": 100,
+          "lead_time_days": 26,
+          "certifications": [
+            "ISO 9001",
+            "ISO 14001"
+          ],
+          "years_trading": 21
+        },
+        {
+          "name": "Jura Prazision AG",
+          "country": "CH",
+          "city": "Biel",
+          "unit_price": 112.0,
+          "moq": 50,
+          "lead_time_days": 21,
+          "certifications": [
+            "ISO 9001",
+            "Swiss Made"
+          ],
+          "years_trading": 34
+        }
+      ]
+    }
+  ]
+}
