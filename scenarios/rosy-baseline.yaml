@@ -1,0 +1,71 @@
+# The world as Brewline wishes it were. Nothing to catch; everything to tie.
+#
+# The one planted mistake is removed from a fresh copy of the base data:
+#   PM-1  the controller's 2025-09-30 refund estimate counted only refundable IEEPA duty on
+#         the six liquidated entries: 13,900.00 (the base world books 24,400.00, sweeping in
+#         10,500.00 of Section 232 steel duty that is never refunded).
+# Everything else is the base world: ten shipments, four invoices, one refund of 14,317.00.
+# Brewline pays CBP directly, so duty paid already equals the 7501 in both worlds.
+#
+# Run:  python -m desk scenario scenarios/rosy-baseline.yaml            (scripted seats)
+#       python -m desk scenario scenarios/rosy-baseline.yaml --llm live  (real model)
+
+name: rosy-baseline
+description: >
+  Clean books: the forecast counted only refundable duty, one refund arrives. Every tie-out
+  holds before the desk runs; the desk records the deposit, splits it and credits Bean
+  Street; every tie-out holds afterwards; no invariant ever fires.
+
+patches:
+  # PM-1 undone: the quarter-end estimate, and the balance assertion that follows from it
+  - file: systems/books/history/2025.beancount
+    replace:
+      - old: "Assets:Receivable:TariffRefund      24400.00 USD"
+        new: "Assets:Receivable:TariffRefund      13900.00 USD"
+      - old: "IEEPA and Section 232 duties on liquidated entries, per the CBP 7501"
+        new: "IEEPA duties on liquidated entries, per the CBP 7501"
+      - old: "balance Assets:Receivable:TariffRefund     24400.00 USD"
+        new: "balance Assets:Receivable:TariffRefund     13900.00 USD"
+  # the ground truth and answer key of this world (the desk never reads them; the scorer does)
+  - file: data/truth/world.json
+    json_set:
+      - set: {planted_mistakes: [], scenario_id: rosy-baseline}
+  - file: data/answer_key/answer_key.json
+    json_set:
+      - set:
+          scenario_id: rosy-baseline
+          planted_mistakes: []
+          "tie_outs.cogs_tariff_end_of_history": -12082.0
+
+expect:
+  invariant_violations: 0
+  unrecorded_deposits: [BNK-0026]
+  ledger_before_run:
+    Assets:Bank:Increase:Operating: 332558.00
+    Assets:Inventory:Parts: 185952.00
+    Assets:Receivable:TariffRefund: 13900.00
+    Assets:Receivable:Trade: 0.00
+    Liabilities:Payable:Vendors: 0.00
+    Expenses:COGS:Tariff: -12082.00
+    Expenses:COGS:Parts: 4020.00
+    Income:Sales:Machines: -21900.00
+    Income:Sales:TariffSurcharge: -2448.00
+
+run:
+  llm: scripted
+  steps: [onboarding, invariants, deposit, split, credit:CUST-001, question:CUST-002]
+  expect:
+    invariant_violations: 0
+    unrecorded_deposits: []
+    work_items_opened_by_invariants: []
+    posted_entries: 3
+    questions_to: [human_lawyer]
+    ledger_after_run:
+      Assets:Bank:Increase:Operating: 346875.00
+      Assets:Receivable:TariffRefund: 0.00
+      Income:Interest:TariffRefund: -417.00
+      Assets:Inventory:Parts: 172820.00
+      Expenses:COGS:Tariff: 1050.00
+      Income:Sales:TariffSurcharge: -816.00
+      Liabilities:CustomerCredits: -1632.00
+    scorer: {phase: 3}

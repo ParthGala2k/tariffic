@@ -1,0 +1,25 @@
+name: tariff-refund-demo
+description: >
+  A refund exposes a forecast containing duty that will never be refunded. The CFO reviews
+  every entry, then reviews Harbor's verified waiver settlement.
+patches: []
+expect:
+  invariant_violations: 1
+  unrecorded_deposits: [BNK-0026]
+  expected_differences:
+    "refund receivable": "10500.00"
+run:
+  llm: scripted
+  steps: [onboarding, invariants, deposit, split, credit:CUST-001, question:CUST-002, harbor-close]
+  expect:
+    invariant_violations: 0
+    work_items_opened_by_invariants: [WI-FORECAST-CORRECTION]
+    posted_entries: 4
+    questions_to: [human_lawyer]
+    ledger_after_run:
+      Assets:Bank:Increase:Operating: "346875.00"
+      Assets:Receivable:TariffRefund: "0.00"
+      Assets:Inventory:Parts: "172820.00"
+      Expenses:COGS:Tariff: "1050.00"
+      Liabilities:CustomerCredits: "-1632.00"
+    scorer: {phase: 3}

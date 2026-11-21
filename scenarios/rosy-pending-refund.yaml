@@ -1,0 +1,63 @@
+# The clean world, a month earlier: the entries have liquidated but no refund has been paid
+# yet. The receivable stands at exactly the refundable duty, the bank shows no Treasury
+# credit, and there is nothing for the desk to do. The books must still tie everywhere.
+#
+# Run:  python -m desk scenario scenarios/rosy-pending-refund.yaml
+
+name: rosy-pending-refund
+description: >
+  Clean books before the refund arrives: six entries liquidated, receivable 13,900.00,
+  no deposit, no notice. Every tie-out holds and no invariant fires. No desk run.
+
+patches:
+  # the same correction as rosy-baseline, and no refund yet
+  - file: data/views/bank/transactions.csv
+    csv_delete:
+      - where: {txn_id: BNK-0026}            # the refund has not been paid yet
+    recompute_running_balance: {balance: balance_after, amount: amount, direction: direction, credit_value: credit}
+  - file: systems/books/history/2025.beancount
+    replace:
+      - old: "Assets:Receivable:TariffRefund      24400.00 USD"
+        new: "Assets:Receivable:TariffRefund      13900.00 USD"
+      - old: "IEEPA and Section 232 duties on liquidated entries, per the CBP 7501"
+        new: "IEEPA duties on liquidated entries, per CBP 7501"
+      - old: "balance Assets:Receivable:TariffRefund     24400.00 USD"
+        new: "balance Assets:Receivable:TariffRefund     13900.00 USD"
+  # no refund yet: no notice, entries still awaiting payment, no letters in the inbox about it
+  - file: data/views/customs/cbp_refunds.json
+    json_write: []
+  - file: data/views/customs/cbp_entries.json
+    json_set:
+      - where: {liquidation_status: liquidated}
+        set: {refund_status: pending, refund_id: null}
+  - file: data/documents/inbox/2025-10-14-cbp-refund-notice.md
+    remove_file: true
+  - file: data/documents/inbox/2025-10-15-bank-memo.md
+    remove_file: true
+  - file: data/truth/world.json
+    json_set:
+      - set: {planted_mistakes: [], scenario_id: rosy-pending-refund, refunds: []}
+  - file: data/answer_key/answer_key.json
+    json_set:
+      - set: {scenario_id: rosy-pending-refund, planted_mistakes: []}
+
+known_issues:
+  - >
+    INV-2 (forecast_refundable_only) fires here, on a receivable that is entirely refundable duty
+    on liquidated entries. desk/invariants.py receivable_breakdown() measures "refundable duty
+    still outstanding" from CBP refund notices only (golden_cbp_refunds), so before a notice
+    exists it treats the whole receivable as excess and attributes it to non-refundable duty.
+    POL-001 2.2 allows the receivable once entries have liquidated and a notice, court order or
+    CBP guidance makes the refund virtually certain. Decision for the team: widen the base to
+    refundable duty on liquidated entries. Until then this scenario expects the one false alarm.
+
+expect:
+  invariant_violations: 1          # the INV-2 false alarm described above, nothing else
+  unrecorded_deposits: []
+  ledger_before_run:
+    Assets:Bank:Increase:Operating: 332558.00
+    Assets:Inventory:Parts: 185952.00
+    Assets:Receivable:TariffRefund: 13900.00
+    Expenses:COGS:Tariff: -12082.00
+
+run: null
